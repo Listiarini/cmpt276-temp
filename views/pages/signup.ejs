@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/apphead.ejs %>
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="header">
+            <h3 id="title">Not A Web App</h3>
+
+            <br>
+            <form id="signup-form" action="/login" method="post">
+                <input type="text" name="userid" placeholder="user id" maxlength="25" required>
+                <input type="password" name="password" placeholder="password" maxlength="25" required>
+                <br>
+                <button id="signup">sign up</button>
+            </form>
+
+            <h6>already have an account?</h6>
+            <a href="login"> >> Login << </a>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

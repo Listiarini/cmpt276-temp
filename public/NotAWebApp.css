@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    margin: 20px 20px 0 20px;
+}
+/*h2 {
+    background-color: lightgrey;
+    position: absolute;
+    width: 90%;
+    height: 300px; change?
+    padding: 50px;
+    margin: 20px;
+}*/
+.jumbotron {
+    position: absolute;
+    width: 90%;
+    margin: 20px;
+    height: 300px;
+}
+#topRight {
+    background-color: darkgrey;
+    position: absolute;
+    right: 9%;  /*get this to match up*/
+    width: 10%;
+    height: 25%;
+    padding: 15px 40px 30px 15px;
+    /*margin: 20px 17px 20px 20px;*/
+}
+.timer {
+    background-color: lightgrey;
+    width: 30%;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+}
+.nextGame {
+    
+}
+.usersOnline {
+    background-color: lightgrey;
+    border-radius: 25px;
+    width: 30%;
+    padding: 10px;
+}
+.chat {
+    position: absolute;
+    bottom: 5px;
+    border-radius: 25px;
+    width: 96%; /*is this ok?*/
+}
+.col-sm-8 {
+    background-color: lightgrey;
+    border-radius: 25px;
+    height: 300px;
+    padding: 10px;
+}
+.currentScore {
+    text-align: center;
+}
+.container {
+    position: relative;
+    margin: 350px 0px 0px 0px;
+}

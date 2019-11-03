@@ -14,13 +14,29 @@ express()
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.render('pages/login'))
     .get('/login', (req, res) => res.render('pages/login'))
-    .get('/signup', (req, res) => res.render('pages/signup'))
-    .get('/db', async(req, res) => {
+    .post('/login', async(req, res) => {
         try {
             const client = await pool.connect()
-            const result = await client.query('SELECT * FROM test_table');
-            const results = { 'results': (result) ? result.rows : null };
-            res.render('pages/db', results);
+                //const loginQuery = await client.query(`...`);
+
+            //const result = await client.query(``);
+            //const results = { 'results': (result) ? result.rows : null };
+            //res.render('pages/<pageName>', results);
+            client.release();
+        } catch (err) {
+            console.error(err);
+            res.send("Error " + err);
+        }
+    })
+    .get('/signup', (req, res) => res.render('pages/signup'))
+    .post('/signup', async(req, res) => {
+        try {
+            const client = await pool.connect()
+                //const signupQuery = await client.query(`INSERT INTO users values(${req.body.userid}, ${req.body.password}`);
+
+            //const result = await client.query(`SELECT * FROM users ORDER BY userid `);
+            //const results = { 'results': (result) ? result.rows : null };
+            //res.render('pages/<pageName>', results);
             client.release();
         } catch (err) {
             console.error(err);

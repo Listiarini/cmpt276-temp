@@ -12,11 +12,11 @@
             <h3 id="title">Not A Web App</h3>
 
             <br>
-            <form id="signup-form" action="/login" method="post">
+            <form id="signup-form" action="/signup" method="post">
                 <input type="text" name="userid" placeholder="user id" maxlength="25" required>
                 <input type="password" name="password" placeholder="password" maxlength="25" required>
                 <br>
-                <button id="signup">sign up</button>
+                <input type="button" id="signup" onclick="signupUser()" value="sign up"></button>
             </form>
 
             <h6>already have an account?</h6>

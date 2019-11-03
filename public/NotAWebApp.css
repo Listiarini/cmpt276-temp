@@ -7,15 +7,7 @@ h1 {
     font-family: Amatic SC, sans-serif;
     letter-spacing: 0.07em;
     margin: 20px 20px 0 20px;
-}
-/*h2 {
-    background-color: lightgrey;
-    position: absolute;
-    width: 90%;
-    height: 300px; change?
-    padding: 50px;
-    margin: 20px;
-}*/
+}       /*get fonts to match login page*/
 h2 {
     background-color: rgb(66, 57, 89);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
@@ -55,6 +47,7 @@ h2 {
 }
 .nextGame {
     color: rgb(70, 202, 146);
+    letter-spacing: 0.07em;
 }
 .usersOnline {
     background-color: rgb(66, 57, 89);

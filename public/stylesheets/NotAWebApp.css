@@ -17,6 +17,7 @@ h1 {
     position: absolute;
     width: 90%;
     margin: 20px;
+    height: 300px;
 }
 #topRight {
     background-color: darkgrey;
@@ -55,5 +56,5 @@ h1 {
 }
 .container {
     position: relative;
-    margin: 325px 0px 0px 0px;
+    margin: 350px 0px 0px 0px;
 }

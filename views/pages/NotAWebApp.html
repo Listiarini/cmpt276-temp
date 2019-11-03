@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="NotAWebApp.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Title of Game</h1>
+        <div class="jumbotron">
+            <h2> </h2>
+        </div>
+        
+        <p id="topRight">Current Location: # <br>
+            Goal: # <br>
+            Speed: # <br>
+        </p>
 
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/stylesheets/NotAWebApp.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <h1>Title of Game</h1>
-    <h2></h2>
-    <p id="topRight">Current Location: # <br> Goal: # <br> Speed: # <br>
-    </p>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <p class="timer">Timer</p>
-                <p class="nextGame">Until next game</p>
-                <p class="usersOnline">Users Online</p>
-            </div>
-            <div class="col-sm-6">
-                <p class="chat">Chat Box</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="timer">Timer</p>
+                    <p class="nextGame">Until next game</p>
+                    <p class="usersOnline">Users Online</p>
+                </div>
+                <div class="col-sm-8">
+                    <p class="chat">Chat Box</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <p id="bottom" class="currentScore">Current Score: ##</p>
+        <p id="bottom" class="currentScore">Current Score: ##</p>
 
-</body>
-
+    </body>
 </html>

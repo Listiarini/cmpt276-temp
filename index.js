@@ -10,18 +10,26 @@ const pool = new Pool({
 
 express()
     .use(express.static(path.join(__dirname, 'public')))
+    .use(express.json())
+    .use(express.urlencoded({ extended: false }))
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.render('pages/login'))
+    .get('/main', (req, res) => res.render('pages/NotAWebApp'))
     .get('/login', (req, res) => res.render('pages/login'))
     .post('/login', async(req, res) => {
         try {
             const client = await pool.connect()
-                //const loginQuery = await client.query(`...`);
+            const result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
 
-            //const result = await client.query(``);
-            //const results = { 'results': (result) ? result.rows : null };
-            //res.render('pages/<pageName>', results);
+            const results = { 'results': (result) ? result.rows : null };
+            if (result.rows[0].password == req.body.password) {
+                res.render('pages/NotAWebApp', results);
+                console.log("logged in");
+            } else {
+                res.render('pages/signup', results);
+                console.log("not logged in");
+            }
             client.release();
         } catch (err) {
             console.error(err);
@@ -32,11 +40,10 @@ express()
     .post('/signup', async(req, res) => {
         try {
             const client = await pool.connect()
-                //const signupQuery = await client.query(`INSERT INTO users values(${req.body.userid}, ${req.body.password}`);
+            const result = await client.query(`INSERT INTO users (userid, password) VALUES ('${req.body.userid}', '${req.body.password}')`);
 
-            //const result = await client.query(`SELECT * FROM users ORDER BY userid `);
-            //const results = { 'results': (result) ? result.rows : null };
-            //res.render('pages/<pageName>', results);
+            const results = { 'results': (result) ? result.rows : null };
+            res.render('pages/login', results);
             client.release();
         } catch (err) {
             console.error(err);

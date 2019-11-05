@@ -12,9 +12,9 @@
             <h3 id="title">Not A Web App</h3>
 
             <br>
-            <form id="login-form" action="/login" method="post">
-                <input type="text" name="userid" placeholder="user id" maxlength="25" required>
-                <input type="password" name="password" maxlength="25" placeholder="password" required>
+            <form id="loginForm" method="post">
+                <input type="text" name='userid' placeholder="user id" maxlength="25" required>
+                <input type="password" name='password' maxlength="25" placeholder="password" required>
                 <br>
                 <input type="button" id="login" onclick="loginUser()" value="login"></button>
             </form>
@@ -25,14 +25,13 @@
 
 
     </div>
-
+    <script>
+        //Login user
+        function loginUser() {
+            document.getElementById('loginForm').action = '/login';
+            document.getElementById('loginForm').submit();
+        }
+    </script>
 </body>
-<script>
-    //Login user
-    function loginUser() {
-        document.getElementById('login-form').action = '/login';
-        document.getElementById('login-form').submit();
-    }
-</script>
 
 </html>

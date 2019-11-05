@@ -44,6 +44,7 @@ h2 {
     margin: 0;
     padding: 10px;
     padding-right: 110px;
+    /* vertical-align: top; */
 }
 .nextGame {
     color: rgb(70, 202, 146);
@@ -59,6 +60,7 @@ h2 {
     padding-right: 110px;
     height: 180px;
     color: rgb(222, 73, 137); /*for now this but need different colour for each user*/
+    /* vertical-align: bottom; */
 }
 .chat {
     position: absolute;
@@ -87,4 +89,16 @@ h2 {
 .container {
     position: relative;
     margin: 450px 0px 0px 0px;
+}
+.logout {
+    border: none;
+    color: rgb(222, 73, 137); 
+    background-color: rgb(66, 57, 89);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+    opacity: 0.90;
+    border-radius: 25px;
+    position: relative;
+    margin: 5px;
+    vertical-align: bottom;
+    left: 20px;
 }

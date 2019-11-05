@@ -1,7 +1,9 @@
 //Add new user
 function signupUser() {
-    document.getElementById('signup-form').action = '/signup';
-    document.getElementById('signup-form').submit();
+    //document.getElementById('signup-form').action = '/signup';
+    //document.getElementById('signup-form').submit();
+    alert("Eyo");
+    console.log("idk");
 }
 
 //Login user

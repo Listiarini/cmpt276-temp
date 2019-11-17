@@ -24,7 +24,7 @@ express()
             const client = await pool.connect()
             const result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
 
-            const results = { 'results': (result) ? result.rows : null };
+            const results = { 'rows': (result) ? result.rows : null };
             if (result.rows[0].password == req.body.password) {
                 res.render('pages/mainmenu', results);
                 console.log("logged in");

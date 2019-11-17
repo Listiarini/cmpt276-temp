@@ -1,7 +1,9 @@
 body {
-    background: url(/slightblur.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background: url(/slightblur.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: rgb(69, 72, 76);
     margin-top: 0px;
     font-family: Verdana, sans-serif;

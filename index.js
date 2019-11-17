@@ -26,7 +26,7 @@ express()
 
             const results = { 'results': (result) ? result.rows : null };
             if (result.rows[0].password == req.body.password) {
-                res.render('pages/menu', results);
+                res.render('pages/mainmenu', results);
                 console.log("logged in");
             } else {
                 res.render('pages/signup', results);

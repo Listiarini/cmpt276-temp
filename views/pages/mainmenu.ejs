@@ -9,8 +9,10 @@
     <div id="container">
 
             <h3 id="title">Welcome Back,</h3>
+            <% rows.forEach((r) => { %>
             <!-- in case we have time for user picture<div id="ppbox"></div> -->
-             <h5 id="username">username</h5>
+            <h5 id="username"><%= r.userid %></h5>
+            <% }); %>
             
             
             <button id="button1" value="b1" onclick="window.location.href = 'main';">New Game</button>

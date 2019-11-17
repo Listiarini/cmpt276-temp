@@ -17,6 +17,7 @@ express()
     .get('/', (req, res) => res.render('pages/login'))
     .get('/main', (req, res) => res.render('pages/NotAWebApp'))
     .get('/menu', (req, res) => res.render('pages/mainmenu'))
+    .get('/underconstruction', (req, res) => res.render('pages/underconstruction'))
     .get('/login', (req, res) => res.render('pages/login'))
     .post('/login', async(req, res) => {
         try {

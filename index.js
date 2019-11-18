@@ -23,23 +23,25 @@ express()
           console.log(req.body.userid)
           console.log(req.body.password)
           console.log("istrue", req.body.userid == "")
-          const client = await pool.connect()
+          if(false) {
+            const client = await pool.connect()
           
-          result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
+            result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
             
             
             
-          result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
+            result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
 
-          const results = { 'results': (result) ? result.rows : null };
-          if (result.rows[0].password == req.body.password) {
-              res.render('pages/NotAWebApp', results);
-              console.log("logged in");
-          } else {
-              res.render('pages/signup', results);
-              console.log("not logged in");
+            const results = { 'results': (result) ? result.rows : null };
+            if (result.rows[0].password == req.body.password) {
+                res.render('pages/NotAWebApp', results);
+                console.log("logged in");
+            } else {
+                res.render('pages/signup', results);
+                console.log("not logged in");
+            }
+            client.release();
           }
-          client.release();
         } catch (err) {
             console.error(err);
             res.send("Error " + err);

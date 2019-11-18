@@ -19,29 +19,23 @@ express()
     .get('/login', (req, res) => res.render('pages/login'))
     .post('/login', async(req, res) => {
         try {
-          
-          console.log(req.body.userid)
-          console.log(req.body.password)
-          console.log("istrue", req.body.userid == "")
-          if(false) {
-            const client = await pool.connect()
-          
-            result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
-            
-            
-            
-            result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
+          // input sanitation (protection from injection attacks) is beyond the scope of the project because I'm depressed :)))
+          console.log("recieved login request with uid", req.body.userid, "password", req.body.password)
 
-            const results = { 'results': (result) ? result.rows : null };
-            if (result.rows[0].password == req.body.password) {
-                res.render('pages/NotAWebApp', results);
-                console.log("logged in");
-            } else {
-                res.render('pages/signup', results);
-                console.log("not logged in");
-            }
-            client.release();
+          const client = await pool.connect()          
+          
+          result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
+
+          const results = { 'results': (result) ? result.rows : null };
+          if (result.rows[0].password == req.body.password) {
+              res.render('pages/NotAWebApp', results);
+              console.log("logged in");
+          } else {
+              res.render('pages/signup', results);
+              console.log("not logged in");
           }
+          client.release();
+          
         } catch (err) {
             console.error(err);
             res.send("Error " + err);

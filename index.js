@@ -36,7 +36,7 @@ express()
             res.send("Error " + err);
         }
     })
-    .get('/signup', (req, res) => res.render('pages/signup'))
+    //.get('/signup', (req, res) => res.render('pages/signup'))
     .post('/signup', async(req, res) => {
         try {
             const client = await pool.connect()

@@ -19,24 +19,33 @@ express()
     .get('/login', (req, res) => res.render('pages/login'))
     .post('/login', async(req, res) => {
         try {
-            const client = await pool.connect()
-            const result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
+          
+          console.log(req.body.userid)
+          console.log(req.body.password)
+          console.log("istrue", req.body.userid == "")
+          const client = await pool.connect()
+          
+          result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
+            
+            
+            
+          result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
 
-            const results = { 'results': (result) ? result.rows : null };
-            if (result.rows[0].password == req.body.password) {
-                res.render('pages/NotAWebApp', results);
-                console.log("logged in");
-            } else {
-                res.render('pages/signup', results);
-                console.log("not logged in");
-            }
-            client.release();
+          const results = { 'results': (result) ? result.rows : null };
+          if (result.rows[0].password == req.body.password) {
+              res.render('pages/NotAWebApp', results);
+              console.log("logged in");
+          } else {
+              res.render('pages/signup', results);
+              console.log("not logged in");
+          }
+          client.release();
         } catch (err) {
             console.error(err);
             res.send("Error " + err);
         }
     })
-    //.get('/signup', (req, res) => res.render('pages/signup'))
+    .get('/signup', (req, res) => res.render('pages/signup'))
     .post('/signup', async(req, res) => {
         try {
             const client = await pool.connect()

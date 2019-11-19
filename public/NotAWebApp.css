@@ -1,13 +1,18 @@
 body {
     margin: 0;
+    background: url(/slightblur.jpg);
+    background-size: 100%;
+    color: rgb(69, 72, 76);
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
 }
 h1 {
     text-align: center;
     color: rgb(70, 202, 146);
     font-family: Amatic SC, sans-serif;
     letter-spacing: 0.07em;
-    margin: 20px 20px 0 20px;
-}       /*get fonts to match login page*/
+    margin: 0 20px 0 20px;
+}
 h2 {
     background-color: rgb(66, 57, 89);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
@@ -26,11 +31,10 @@ h2 {
     opacity: 0.90;
     border-top-right-radius: 25px;
     position: absolute;
-    right: 138px;  /*get this to match up*/
+    right: 138px;  /*get this to match up on the right*/
     width: 10%;
     height: 25%;
     padding: 15px 40px 30px 15px;
-    /*margin: 20px 17px 20px 20px;*/
 }
 .timer {
     color: rgb(222, 73, 137);
@@ -62,18 +66,18 @@ h2 {
     color: rgb(222, 73, 137); /*for now this but need different colour for each user*/
     /* vertical-align: bottom; */
 }
-.chat {
+/* #txt {
     position: absolute;
     bottom: 5px;
     border-radius: 25px;
-    width: 96%; /*is this ok?*/
+    width: 96%;
     font-family: Courier New, sans-serif;
     padding-left: 10px;
     height: 25px;
     font-size: 14px;
     margin-top: 12px;
     margin-bottom: 12px;
-}
+} */
 .col-sm-8 {
     background-color: rgb(66, 57, 89);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
@@ -90,7 +94,7 @@ h2 {
     position: relative;
     margin: 450px 0px 0px 0px;
 }
-.logout {
+#logout-form {
     border: none;
     color: rgb(222, 73, 137); 
     background-color: rgb(66, 57, 89);
@@ -101,4 +105,107 @@ h2 {
     margin: 5px;
     vertical-align: bottom;
     left: 20px;
+}
+form {
+    bottom: 0;
+    position: absolute;
+    width: 96%;
+    font-family: Courier New, sans-serif;
+    padding-left: 10px;
+    height: 25px;
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+form input {
+    position: absolute;
+    bottom: 5px;
+    border-radius: 25px;
+    width: 93%;
+    font-family: Courier New, sans-serif;
+    padding-left: 10px;
+    height: 25px;
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+form button {
+    width: 50%;
+    border: none;
+    padding: 1px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 25px;
+}
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#messages li {
+    padding: 5px 10px;
+}
+/* #messages li:nth-child(odd) { --> dont want this but want every user to have their own colour
+    background: ?;
+} */
+#fright {
+    float: left;
+    position: relative;
+    padding: 1px;
+    border: none;
+    color: rgb(222, 73, 137); 
+    background-color: rgb(66, 57, 89);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+    opacity: 0.90;
+    border-radius: 25px;
+    position: relative;
+    margin: 10px 10px 10px 10px;
+    vertical-align: bottom;
+    bottom: 0;
+}
+
+
+
+
+/*          TOGGLE      */
+.toggle #fright {
+    color: rgb(237, 130, 177); 
+    background-color: rgb(147, 130, 191);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+}
+.toggle body {
+    margin: 0;
+    background: url(/slightblur.jpg);
+    background-size: 100%;
+    color: rgb(69, 72, 76);
+}
+.toggle h1 {
+    color: rgb(70, 202, 146);
+}
+.toggle h2 {
+    background-color: rgb(147, 130, 191);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+}
+.toggle #topRight {
+    background-color: rgb(147, 130, 191);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+}
+.toggle .timer {
+    color: rgb(237, 130, 177);
+    background-color: rgb(147, 130, 191);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+}
+.toggle .usersOnline {
+    background-color: rgb(147, 130, 191);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+    color: rgb(237, 130, 177);
+}
+.toggle .col-sm-8 {
+    background-color: rgb(147, 130, 191);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
+}
+.toggle #logout-form {
+    border: none;
+    color: rgb(237, 130, 177); 
+    background-color: rgb(147, 130, 191);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.75);
 }

@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const http = require('http').Server(express); //chat
+const io = require('socket.io')(http);
 
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -8,8 +10,8 @@ const pool = new Pool({
     ssl: true
 });
 
-express()
-    .use(express.static(path.join(__dirname, 'public')))
+app = express();
+    app.use(express.static(path.join(__dirname, 'public')))
     .use(express.json())
     .use(express.urlencoded({ extended: false }))
     .set('views', path.join(__dirname, 'views'))
@@ -17,14 +19,19 @@ express()
     .get('/', (req, res) => res.render('pages/login'))
     .get('/main', (req, res) => res.render('pages/NotAWebApp'))
     .get('/login', (req, res) => res.render('pages/login'))
+    .post('/main', async(req, res) => { res.render('pages/NotAWebApp') })
     .post('/login', async(req, res) => {
         try {
             const client = await pool.connect()
             const result = await client.query(`SELECT password FROM users WHERE userid = '${req.body.userid}'`);
 
             const results = { 'results': (result) ? result.rows : null };
-            if (result.rows[0].password == req.body.password) {
-                res.render('pages/NotAWebApp', results);
+            console.log(results)
+            if (result == null) {
+                res.render('pages/signup', results);
+                console.log("user does not exist, please sign up");
+            } else if (result.rows[0].password == req.body.password) {
+                res.redirect('/main');
                 console.log("logged in");
             } else {
                 res.render('pages/signup', results);
@@ -49,5 +56,26 @@ express()
             console.error(err);
             res.send("Error " + err);
         }
-    })
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+    });
+
+var counter = 0;
+io.sockets.on('connection', function(socket) {
+    socket.on('username', function(username) {
+        socket.username = username;
+        io.emit('is_online', '• <i>' + socket.username + ' joined the game</i>'); //what does the is_online do? does it print? delete if it does --> for the one below too
+        counter++;
+        socket.emit('counter', {count:counter});
+    });
+    socket.on('disconnect', function(username) {
+        io.emit('is_online', '• <i>' + socket.username + ' left the game<i/>');
+        counter--;
+        socket.emit('counter', {count:counter});
+    });
+    socket.on('chat_message', function(message) {
+        io.emit('chat_message', ' <strong> ' + socket.username + ' </strong>: ' + message);
+    });
+});
+
+// pick one, comment the other
+app.listen(PORT, () => { console.log(`Listening on ${ PORT }`);  }) 
+// http.listen(PORT, () => { console.log(`Listening on ${ PORT }`);  }) 

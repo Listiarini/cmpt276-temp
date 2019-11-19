@@ -1,3 +1,4 @@
+/*
 //Add new user
 function signupUser() {
     document.getElementById('signup-form').action = '/signup';
@@ -17,5 +18,12 @@ function loginUser() {
   
   document.getElementById('login-form').action = '/login';
   document.getElementById('login-form').submit();
-  }
+}
+*/
+function useMaps() {
+  // just a test that the google earth engine APi is in use
+  //document.getElementById
+  document.getElementById('mapSubmit').action = '/randMap';
+  document.getElementById('mapSubmit').submit();
+  
 }

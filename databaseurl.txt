@@ -1,0 +1,2 @@
+=== cmpt276-lis-temp Config Vars
+DATABASE_URL: postgres://meaqsjhdjboidu:6feda19606b252924577fd369e16802880fd01f19ecc77462e542071386e1453@ec2-54-221-214-3.compute-1.amazonaws.com:5432/d2tb6ugmci38e1

@@ -1,4 +1,5 @@
 const express = require('express')
+const reportBug = require('./public/js/reportbug');
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const ee = require('@google/earthengine');
@@ -74,7 +75,6 @@ app = express();
             res.send("Error " + err);
         }
     })
-    
     .get('/review', async(req,res) => {
         try {
             const client = await pool.connect()
@@ -101,6 +101,25 @@ app = express();
             console.error(err);
             res.send("Error " + err);
         }
+    })
+    .get('/reportbugsucess', (req, res) => res.render('pages/reportbugsucess'))
+    .get('/reportbugfail', (req, res) => res.render('pages/reportbugfail'))
+    .get('/reportbug', (req, res) => res.render('pages/reportbug'))
+    .post('/reportbug', async(req, res) => {
+        const client = await pool.connect();
+            
+        const email = req.body.email;
+        const subject = req.body.subject;
+        const descript = req.body.descript;
+        reportBug(email, subject, descript, function(err, data) {
+            if (err) {
+                res.render('pages/reportbugfail');
+            }
+            else {
+                res.render('pages/reportbugsuccess');
+            }
+        });
+        client.release();
     });
 
     
